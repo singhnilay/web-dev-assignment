@@ -1,0 +1,27 @@
+{
+  "name": "web-dev-assignment",
+  "version": "1.0.0",
+  "description": "Assignment project",
+  "homepage": "https://github.com/singhnilay/web-dev-assignment#readme",
+  "bugs": {
+    "url": "https://github.com/singhnilay/web-dev-assignment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/singhnilay/web-dev-assignment.git"
+  },
+  "license": "ISC",
+  "author": "Nilay Pratap Singh",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/src/index.js",
+    "dev": "nodemon backend/src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongoose": "^9.12.1",
+    "nodemon": "^3.1.14"
+  }
+}
