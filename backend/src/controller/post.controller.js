@@ -24,8 +24,49 @@ const createPost = async (req, res) => {
     }
 }
 
-const getPosts
+const getPosts = async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.status(200).json(posts);
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error", error : error.message
+        })
+    }
+} 
+
+const updatePost = async (req, res) => {
+    try {
+        // basic validation to chekc if the body is empty
+
+        if (Object.keys(req.body).length === 0){
+            return res.status(400).json({
+                message : "No data provided"
+            })
+        }
+
+        const post = await Post.findByIdAndUpdate(req.params.id, req.body ,{new : true});
+
+        if (!post) {
+            return res.status(404).json({
+                message : "Post not found"
+            });
+        }
+
+        res.status(200).json({
+            message : "Post updated successfully", post
+        })
+
+
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error", error : error.message
+        })
+    }   
+}
 
 export {
-    createPost
+    createPost,
+    getPosts,
+    updatePost
 }
